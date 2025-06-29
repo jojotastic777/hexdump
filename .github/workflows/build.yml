@@ -17,6 +17,11 @@ on:
         type: boolean
         required: true
   workflow_dispatch:
+    inputs:
+      build_hexdoc:
+        description: Build Hexdoc
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -186,7 +191,7 @@ jobs:
   deploy-pages:
     needs:
       - build-hexdoc
-    if: needs.build-hexdoc.outputs.deploy == 'true'
+    if: needs.build-hexdoc.outputs.deploy == 'true' && inputs.build_hexdoc
     runs-on: ubuntu-latest
     concurrency:
       group: hexdoc-deploy-pages
