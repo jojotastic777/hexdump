@@ -1,0 +1,8 @@
+{
+  hexdoc: {
+    hexdump: {
+      title: "Hexdump Book",
+      description: "Hexdump is an addon for Hex Casting which adds a command which writes all the patterns from every installed addon into a `patterns.json` file in your `.minecraft` folder.",
+    },
+  }
+}

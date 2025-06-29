@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "hexdump",
+  "version": "${version}",
+  "name": "Hexdump",
+  "description": "Hexdump is an addon for Hex Casting which adds a command which writes all the patterns from every installed addon into a `patterns.json` file in your `.minecraft` folder.",
+  "authors": [
+    "jojotastic777"
+  ],
+  "contact": {
+    "homepage": "https://jojotastic777.github.io/hexdump",
+    "sources": "https://github.com/jojotastic777/hexdump"
+  },
+  "license": "MIT",
+  "icon": "assets/hexdump/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [{
+      "adapter": "kotlin",
+      "value": "io.github.jojotastic777.hexdump.fabric.FabricHexdump"
+    }],
+    "client": [{
+      "adapter": "kotlin",
+      "value": "io.github.jojotastic777.hexdump.fabric.FabricHexdumpClient"
+    }],
+    "modmenu": [{
+      "adapter": "kotlin",
+      "value": "io.github.jojotastic777.hexdump.fabric.FabricHexdumpModMenu"
+    }]
+  },
+  "mixins": [
+    "hexdump-common.mixins.json",
+    "hexdump-fabric.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "${versions.minecraft}",
+    "fabricloader": ">=${versions.fabric_loader}",
+    "fabric-api": ">=${versions.fabric_api}",
+    "fabric-language-kotlin": ">=${versions.kotlin_fabric}",
+    "architectury": ">=${versions.architectury}",
+    "hexcasting": ">=${versions.hexcasting_dependency}",
+    "cloth-config": ">=${versions.clothConfig}"
+  },
+  "suggests": {
+    "modmenu": ">=${versions.modMenu}"
+  }
+}

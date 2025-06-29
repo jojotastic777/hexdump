@@ -1,0 +1,22 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+# https://copier.readthedocs.io/en/stable/updating/#never-change-the-answers-file-manually
+_commit: v2.0.4
+_src_path: gh:FallingColors/hexdummy
+advanced: true
+capitalize_platforms: false
+classname: Hexdump
+default_branch: main
+description: Hexdump is an addon for Hex Casting which adds a command which writes
+    all the patterns from every installed addon into a `patterns.json` file in your
+    `.minecraft` folder.
+display_name: Hexdump
+github_repo: hexdump
+github_user: jojotastic777
+homepage_url: https://jojotastic777.github.io/hexdump
+java_package: io.github.jojotastic777.hexdump
+kotlin_package: io.github.jojotastic777.hexdump
+mappings_name: Mojmap
+minecraft_version_in_mod_version: true
+mod_version: 0.1.0
+modid: hexdump
+sources_url: https://github.com/jojotastic777/hexdump
