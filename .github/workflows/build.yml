@@ -167,6 +167,7 @@ jobs:
           fabric-api: ${{ matrix.fabric-api }}
 
   build-hexdoc:
+    if: inputs.build_hexdoc
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -191,7 +192,7 @@ jobs:
   deploy-pages:
     needs:
       - build-hexdoc
-    if: needs.build-hexdoc.outputs.deploy == 'true' && inputs.build_hexdoc
+    if: needs.build-hexdoc.outputs.deploy == 'true'
     runs-on: ubuntu-latest
     concurrency:
       group: hexdoc-deploy-pages
