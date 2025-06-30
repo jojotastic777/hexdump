@@ -51,14 +51,22 @@ object HexdumpClient {
 
         ClientCommandRegistrationEvent.EVENT.register { dispatcher, _ ->
             dispatcher.register(literal("hexdump")
-                .requires { source -> source.hasPermission(Commands.LEVEL_ADMINS) }
                 .executes { context ->
-                    dumpPatterns(actionsRegistry, true)
+                    dumpPatterns(actionsRegistry, false)
 
                     context.source.`arch$sendSuccess`({-> Component.literal("Dumped actions registry to patterns.json")}, false)
 
                     1
-                })
+                }
+                .then(literal("with-per-world")
+                    .requires { source -> source.hasPermission(Commands.LEVEL_ADMINS) }
+                    .executes { context ->
+                        dumpPatterns(actionsRegistry, true)
+
+                        context.source.`arch$sendSuccess`({-> Component.literal("Dumped actions registry to patterns.json")}, false)
+
+                        1
+                    }))
         }
 
     }
