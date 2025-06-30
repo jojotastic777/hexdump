@@ -10,6 +10,7 @@ import io.github.jojotastic777.hexdump.config.HexdumpConfig
 import io.github.jojotastic777.hexdump.config.HexdumpConfig.GlobalConfig
 import me.shedaniel.autoconfig.AutoConfig
 import net.minecraft.client.gui.screens.Screen
+import net.minecraft.commands.Commands
 import net.minecraft.network.chat.Component
 
 object HexdumpClient {
@@ -21,6 +22,7 @@ object HexdumpClient {
 
         ClientCommandRegistrationEvent.EVENT.register { dispatcher, _ ->
             dispatcher.register(literal("hexdump")
+                .requires { source -> source.hasPermission(Commands.LEVEL_ADMINS) }
                 .executes { context ->
                     val patterns = HashMap<String, Any>()
 
