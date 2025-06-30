@@ -1,6 +1,7 @@
 # Hexdump
 
-Hexdump is an addon for Hex Casting which adds a command, `/hexdump`, which writes all the patterns from every installed addon into a `patterns.json` file in your `.minecraft` folder.
+Hexdump is an addon for Hex Casting which adds a command, `/hexdump`, which writes all non-per-world patterns
+from every installed addon into a `patterns.json` file in your `.minecraft` folder.
 
-This is, perhaps, a little bit overpowered, seeing as how I do not exclude Great Spells from this listing.
-
+If you want to include per-world patterns such as Great Spells, you need to use an op-only subcommand:
+`/hexdump with-per-world`.
