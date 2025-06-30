@@ -11,3 +11,4 @@ This is, perhaps, a little bit overpowered, seeing as how I do not exclude Great
 - [ ] Test how this works on servers.
   - I'm like 80% sure that this currently writes to the *server's* .minecraft folder instead of the client's, and I just don't care enough to fix it right now.
     - [ ] Probably should fix that at some point.
+- [ ] Dump the translations for the patterns to add a name field to `patterns.json`.
