@@ -7,4 +7,3 @@ This is, perhaps, a little bit overpowered, seeing as how I do not exclude Great
 ## TODO:
 - [ ] Make a separate command or something to exclude per-world patterns.
   - Maybe the version *without* per-world patterns could then be a non-op command?
-- [ ] Dump the translations for the patterns to add a name field to `patterns.json`.

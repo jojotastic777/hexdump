@@ -21,6 +21,17 @@ object HexdumpClient {
         val gson = Gson()
 
         ClientCommandRegistrationEvent.EVENT.register { dispatcher, _ ->
+//            dispatcher.register(literal("hexdump_test")
+//                .executes { context ->
+//                    for (id in actionsRegistry.registryKeySet()) {
+//                        val msg = Component.translatable("hexcasting.action.${id.location()}")
+//
+//                        context.source.`arch$sendSuccess`({-> msg}, false)
+//                    }
+//
+//                    1
+//                })
+
             dispatcher.register(literal("hexdump")
                 .requires { source -> source.hasPermission(Commands.LEVEL_ADMINS) }
                 .executes { context ->
@@ -32,6 +43,7 @@ object HexdumpClient {
 
                         val obj = object {
                             val id = id.location().toString()
+                            val name = Component.translatable("hexcasting.action.${id.location()}").string
                             val startDir = entry.prototype.startDir
                             val angles = entry.prototype.anglesSignature()
                             val isPerWorld = isOfTag(actionsRegistry, id, HexTags.Actions.PER_WORLD_PATTERN)
