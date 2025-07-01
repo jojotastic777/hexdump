@@ -7,7 +7,7 @@ import java.io.File
 object PatternDump {
     fun onPatternDump(patterns: Map<String, DumpEntry>) {
         val gson = Gson()
-        val file = File("net-patterns.json")
+        val file = File("patterns.json")
         file.writeText(gson.toJson(patterns))
     }
 
