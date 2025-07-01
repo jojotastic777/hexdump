@@ -76,7 +76,7 @@ object Hexdump {
         val actionsRegistry = IXplatAbstractions.INSTANCE.actionRegistry
 
         CommandRegistrationEvent.EVENT.register { dispatcher, _, _ ->
-            dispatcher.register(literal("hexdump_net")
+            dispatcher.register(literal("hexdump")
                 .executes { context ->
                     dumpPatterns(actionsRegistry, context, false)
 
