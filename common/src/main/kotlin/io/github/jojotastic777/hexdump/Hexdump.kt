@@ -18,6 +18,7 @@ import net.minecraft.network.chat.Component
 import net.minecraft.resources.ResourceLocation
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
+import java.util.Vector
 
 object Hexdump {
     const val MODID = "hexdump"
@@ -32,7 +33,8 @@ object Hexdump {
         val player = ctx.source.player
         if (player == null) { return }
 
-        val patterns = HashMap<String, PatternDump.DumpEntry>()
+//        val patterns = HashMap<Int, PatternDump.DumpEntry>()
+        val patterns: Vector<PatternDump.DumpEntry> = Vector()
 
         for (id in registry.registryKeySet()) {
             val action = registry.get(id)
@@ -49,24 +51,25 @@ object Hexdump {
                 PatternDump.DumpEntry(
                     id = id.location().toString(),
                     name = Component.translatable("hexcasting.action.${id.location()}").string,
-                    startDir = foundPat.startDir.toString(),
-                    angles = foundPat.anglesSignature(),
-                    isPerWorld = true
+                    startdir = foundPat.startDir.toString(),
+                    signature = foundPat.anglesSignature(),
+                    is_per_world = true
                 )
             } else {
                 PatternDump.DumpEntry(
                     id = id.location().toString(),
                     name = Component.translatable("hexcasting.action.${id.location()}").string,
-                    startDir = action.prototype.startDir.toString(),
-                    angles = action.prototype.anglesSignature(),
-                    isPerWorld = false
+                    startdir = action.prototype.startDir.toString(),
+                    signature = action.prototype.anglesSignature(),
+                    is_per_world = false
                 )
             }
 
-            patterns[id.location().toString()] = pat
+//            patterns[patterns.size] = pat
+            patterns.add(pat)
         }
 
-        PatternDumpS2C(patterns).sendToPlayer(player)
+        PatternDumpS2C(patterns.toList()).sendToPlayer(player)
     }
 
     fun init() {
